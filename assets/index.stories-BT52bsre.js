@@ -1,0 +1,3 @@
+import{C as s}from"./index-CrO4saqk.js";import"./extends-CF3RwP-h.js";import"./objectWithoutPropertiesLoose-CAYKN5F1.js";import"./index-CBqU2yxZ.js";import"./_commonjsHelpers-BosuxZz1.js";import"./jsx-runtime-CKrituN3.js";import"./three.module-D2RMN07C.js";import"./index-ChWBCYBM.js";import"./tw-merge-Ds6tgvmq.js";const f={title:"Primitives/Tailwind/Color",component:s,parameters:{componentSubtitle:"Color",jest:"Color.test.tsx",design:{type:"figma",url:""}}},r={args:{}};var t,o,e;r.parameters={...r.parameters,docs:{...(t=r.parameters)==null?void 0:t.docs,source:{originalSource:`{
+  args: {}
+}`,...(e=(o=r.parameters)==null?void 0:o.docs)==null?void 0:e.source}}};const g=["Default"];export{r as Default,g as __namedExportsOrder,f as default};

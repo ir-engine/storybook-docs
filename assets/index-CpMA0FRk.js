@@ -1,0 +1,1 @@
+import{I as o}from"./useDrop-DvNNwWYR.js";import{F as r,M as p}from"./index-B6RCC45a.js";import{R as s}from"./index-CBqU2yxZ.js";function a({onRelease:e,...t}){return s.createElement(r,{acceptFileTypes:p,acceptDropItems:o.Models,onRelease:e,...t})}a.defaultProps={};export{a as M};

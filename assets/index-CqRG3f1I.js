@@ -1,0 +1,1 @@
+import{R as r}from"./index-CBqU2yxZ.js";import{t as l}from"./tw-merge-Ds6tgvmq.js";const m=({className:e,htmlFor:t,children:a,...o})=>r.createElement("label",{htmlFor:t,className:l("inline-block text-sm font-medium leading-none text-theme-secondary peer-disabled:cursor-not-allowed peer-disabled:opacity-70",e),...o},a);export{m as L};
