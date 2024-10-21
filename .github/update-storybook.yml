@@ -16,7 +16,7 @@ jobs:
           # Read the payload and extract the branch name from 'ref'
           BRANCH=$(echo "${{ github.event.payload.ref }}" | sed 's/refs\/heads\///')
           echo "branch_name=$BRANCH" >> $GITHUB_ENV
-          echo "reference_branch=dev" >> $GITHUB_ENV
+          echo "reference_branch=ui-debug" >> $GITHUB_ENV
       
       # Check If UI package is changed
       - name: Check If UI package is changed
