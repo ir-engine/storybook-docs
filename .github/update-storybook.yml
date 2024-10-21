@@ -17,40 +17,47 @@ jobs:
           BRANCH=$(echo "${{ github.event.payload.ref }}" | sed 's/refs\/heads\///')
           echo "branch_name=$BRANCH" >> $GITHUB_ENV
           echo "reference_branch=dev" >> $GITHUB_ENV
+      
+      # Check If UI package is changed
+      - name: Check If UI package is changed
+        id: detect_ui_package_changes
+        run: |
+          python .github/scripts/check-ui-changes.py
+          echo "ui_package_changed=$?" >> $GITHUB_ENV
 
       # Add a condition to only run on 'env.reference_branch' branch
       - name: Check if branch is dev
-        if: env.branch_name == env.reference_branch
+        if: env.branch_name == env.reference_branch && env.ui_package_changed == 1
         run: echo "Branch is ${{ env.reference_branch }}, proceeding with deployment..."
 
       # Steps to build and deploy Storybook only if branch is main
       - name: Checkout Repository
-        if: env.branch_name == 'main'
+        if: env.branch_name == 'main' && env.ui_package_changed == 1
         uses: actions/checkout@v3
         with:
           repository: ir-engine/ir-engine
           path: './ir-engine'
 
       - name: Set up Node.js
-        if: env.branch_name == env.reference_branch
+        if: env.branch_name == env.reference_branch && env.ui_package_changed == 1
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
       - name: Install Dependencies
-        if: env.branch_name == env.reference_branch
+        if: env.branch_name == env.reference_branch && env.ui_package_changed == 1
         run: |
         cd ir-engine
         npm install
 
       - name: Build Storybook
-        if: env.branch_name == env.reference_branch
+        if: env.branch_name == env.reference_branch && env.ui_package_changed == 1
         run: |
           cd ir-engine/packages/ui
           npm run build-storybook
 
       - name: Deploy Storybook to main branch
-        if: env.branch_name == env.reference_branch
+        if: env.branch_name == env.reference_branch && env.ui_package_changed == 1
         run: |
           mv ir-engine/packages/ui/storybook-static .
 
