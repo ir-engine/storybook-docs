@@ -1,0 +1,68 @@
+name: Handle Webhook for Storybook Deployment
+
+on:
+  repository_dispatch:
+    types: [ir-engine-update]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step to extract branch name from webhook payload
+      - name: Extract branch name
+        id: extract_branch
+        run: |
+          # Read the payload and extract the branch name from 'ref'
+          BRANCH=$(echo "${{ github.event.payload.ref }}" | sed 's/refs\/heads\///')
+          echo "branch_name=$BRANCH" >> $GITHUB_ENV
+          echo "reference_branch=dev" >> $GITHUB_ENV
+
+      # Add a condition to only run on 'env.reference_branch' branch
+      - name: Check if branch is dev
+        if: env.branch_name == env.reference_branch
+        run: echo "Branch is ${{ env.reference_branch }}, proceeding with deployment..."
+
+      # Steps to build and deploy Storybook only if branch is main
+      - name: Checkout Repository
+        if: env.branch_name == 'main'
+        uses: actions/checkout@v3
+        with:
+          repository: ir-engine/ir-engine
+          path: './ir-engine'
+
+      - name: Set up Node.js
+        if: env.branch_name == env.reference_branch
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        if: env.branch_name == env.reference_branch
+        run: |
+        cd ir-engine
+        npm install
+
+      - name: Build Storybook
+        if: env.branch_name == env.reference_branch
+        run: |
+          cd ir-engine/packages/ui
+          npm run build-storybook
+
+      - name: Deploy Storybook to main branch
+        if: env.branch_name == env.reference_branch
+        run: |
+          mv ir-engine/packages/ui/storybook-static .
+
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          git checkout --orphan temp-main
+          find . -mindepth 1 ! -path './.git*' ! -path './.github*' ! -path './storybook-static*' -exec rm -rf {} +
+          mv storybook-static/* .
+          rmdir storybook-static
+          touch .nojekyll
+
+          git add .
+          git commit -m "Update Storybook documentation"
+          git push --force origin temp-main:main
