@@ -1,0 +1,28 @@
+._buttonBehavior_oopl3_1 {
+  cursor: pointer;
+}
+._buttonBehavior_oopl3_1:hover {
+  opacity: 0.7;
+}
+._buttonBehavior_oopl3_1:disabled {
+  opacity: 0.5;
+}._slider_c1tpy_1 {
+  flex: 1;
+}
+
+@media (min-width: 600px) {
+  ._label_c1tpy_6 {
+    flex: 0.4;
+    font-family: var(--lato);
+  }
+}
+.MuiSlider-root._slider_c1tpy_1 {
+  color: var(--iconButtonSelectedBackground);
+  margin: 0 10px;
+}
+.MuiSlider-root .MuiSlider-thumb {
+  background: var(--iconButtonColor);
+  border: var(--iconButtonColor);
+  width: 16px;
+  height: 16px;
+}
