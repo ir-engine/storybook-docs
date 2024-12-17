@@ -1,0 +1,3 @@
+import{S as s}from"./index-ZV1uTYdK.js";import"./index-qyj2ZBCg.js";import"./_commonjsHelpers-BosuxZz1.js";import"./index-BK43ywDJ.js";import"./ZoomOutSm-DAXDZ42X.js";import"./index-CKzLO2ZQ.js";import"./index-Bpjd8WCG.js";import"./index-DaaykCGs.js";import"./tw-merge-Ds6tgvmq.js";const p={},S={title:"Editor/Input/String",component:s,parameters:{componentSubtitle:"StringInput",jest:"String.test.tsx",design:{type:"figma",url:""}},argTypes:p},t={args:s.defaultProps};var r,e,o;t.parameters={...t.parameters,docs:{...(r=t.parameters)==null?void 0:r.docs,source:{originalSource:`{
+  args: StringInput.defaultProps
+}`,...(o=(e=t.parameters)==null?void 0:e.docs)==null?void 0:o.source}}};const f=["Default"];export{t as Default,f as __namedExportsOrder,S as default};
