@@ -1,0 +1,1 @@
+import{I as r}from"./useDrop-AVZQmg2Q.js";import{A as t}from"./useUpload-B6ddZ05e.js";import{R as o}from"./index-BVKeUVk_.js";import{F as p}from"./index-BCSVyf8J.js";function m({...e}){return o.createElement(p,{acceptFileTypes:t,acceptDropItems:[r.Folder],...e})}m.defaultProps={};export{m as F};

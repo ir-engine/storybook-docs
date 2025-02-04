@@ -1,0 +1,1 @@
+import{R as t}from"./index-BVKeUVk_.js";import{t as a}from"./tw-merge-Ds6tgvmq.js";function n({selected:e,...o},r){return t.createElement("button",{ref:r,className:a("flex h-8 w-8 items-center justify-center","bg-[#191B1F] text-[#9CA0AA] hover:text-[#F5F5F5]",e&&"bg-[#2C4A8C] text-[#F5F5F5]"),...o})}const f=t.forwardRef(n);export{f as T};
