@@ -1,0 +1,1 @@
+import"./ActionFunctions-D1d2e-x8.js";import"./index-qyj2ZBCg.js";import{c as t,S as o}from"./UUIDComponent-CCxaZchE.js";import{b as e}from"./NodeIDComponent-xsDkxtNa.js";const s=t({name:"LookAtComponent",jsonID:"IR_lookAt",schema:o.Object({target:e(),xAxis:o.Bool(!0),yAxis:o.Bool(!0)})});export{s as L};
