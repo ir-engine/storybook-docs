@@ -1,0 +1,1 @@
+import{R as r}from"./index-CeGdYiXw.js";import{N as m}from"./index-C9jwQBfE.js";import{S as a}from"./Scrubber-MzV9rCw5.js";const s=e=>r.createElement(a,{className:"w-full",...e},r.createElement(m,{className:"w-full",...e}));export{s as N};
