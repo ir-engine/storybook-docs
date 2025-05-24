@@ -1,0 +1,57 @@
+name: Handle Webhook for Storybook Deployment
+
+on:
+  repository_dispatch:
+    types:
+      - push
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          repository: ir-engine/ir-engine
+          path: './ir-engine'
+          ref: dev
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: |
+          cd ir-engine
+          npm install
+
+      - name: Build Storybook
+        run: |
+          cd ir-engine/packages/ui
+          npm run build-storybook
+
+      - name: Deploy Storybook to master branch
+        run: |
+          mv ir-engine/packages/ui/storybook-static .
+
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          git checkout --orphan temp-master
+          find . -mindepth 1 \
+            -not -path './.git*' \
+            -not -path './.github*' \
+            -not -path './storybook-static*' \
+            -exec rm -rf {} + 2>/dev/null || true
+          mv storybook-static/* .
+          rmdir storybook-static
+          touch .nojekyll
+
+          git add .
+          git commit -m "Update Storybook documentation"
+          git push --force origin temp-master:master
