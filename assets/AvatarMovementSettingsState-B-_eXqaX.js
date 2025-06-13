@@ -1,0 +1,1 @@
+import{d as t}from"./WebRTCTransportFunctions-Di8J4qIP.js";import"./index-qyj2ZBCg.js";const i=t({name:"AvatarMovementSettingsState",initial:()=>({walkSpeed:0,runSpeed:0,jumpHeight:2})});export{i as A};

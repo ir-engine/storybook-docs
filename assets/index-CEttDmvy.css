@@ -1,0 +1,70 @@
+._inputField_1otm6_1 {
+  background: var(--inputBackground);
+  border-radius: 4px;
+  flex-grow: 1;
+  /**
+  * This below style is added to fix background issues with chrome autofill.
+  * https://github.com/ir-engine/ir-engine/pull/6448#pullrequestreview-1018811200
+  * https://stackoverflow.com/a/14205976/2077741
+  */
+}
+._inputField_1otm6_1 input:-webkit-autofill,
+._inputField_1otm6_1 input:-webkit-autofill:hover,
+._inputField_1otm6_1 input:-webkit-autofill:focus,
+._inputField_1otm6_1 input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--inputBackground) inset !important;
+}
+._inputField_1otm6_1 input:-moz-placeholder {
+  font-style: italic;
+}
+._inputField_1otm6_1 input:placeholder-shown {
+  font-style: italic;
+}
+
+._preview_1otm6_21 {
+  color: var(--textColor);
+  border: 1px solid var(--buttonOutlined);
+  border-radius: 8px;
+  box-shadow: 0 0 10px var(--buttonOutlined);
+  position: relative;
+}
+
+._previewText_1otm6_29 {
+  position: absolute;
+  top: 0;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+._bold_1otm6_40 {
+  font-weight: bold;
+}
+
+._chip_1otm6_44 {
+  color: var(--textColor);
+  border-color: var(--textColor);
+}
+
+._divider_1otm6_49 {
+  margin: 30px 70px 20px;
+  border: 0.2px solid var(--buttonOutlined);
+  border-bottom: none;
+}
+
+@media (max-width: 899px) {
+  ._hideSm_1otm6_56 {
+    display: none;
+  }
+}._stage_b24fk_1 {
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+._fill_b24fk_6 {
+  width: 100%;
+  height: 100%;
+}
