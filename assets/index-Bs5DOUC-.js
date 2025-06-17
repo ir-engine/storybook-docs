@@ -1,0 +1,1 @@
+import{R as a}from"./index-DPzuYzxM.js";import{t as o}from"./tw-merge-Ds6tgvmq.js";const m=({className:e,htmlFor:s,children:t,...r})=>a.createElement("span",{className:o("inline-block text-xs font-semibold text-text-primary peer-disabled:cursor-not-allowed peer-disabled:text-text-inactive",e),...r},t);export{m as L};

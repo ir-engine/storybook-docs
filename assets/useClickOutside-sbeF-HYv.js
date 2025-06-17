@@ -1,0 +1,1 @@
+import{r as o}from"./index-DPzuYzxM.js";const u=(t,r)=>{o.useEffect(()=>{const e=n=>{t.current&&!t.current.contains(n.target)&&r(n)};return document.addEventListener("mousedown",e),()=>document.removeEventListener("mousedown",e)},[t.current])};export{u};
